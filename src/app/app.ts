@@ -1,9 +1,11 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { DataService } from './data.service';
+import { ItemsComponent } from "./items/items.component";
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [ItemsComponent],
+  standalone: true,
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -15,7 +17,8 @@ export class App {
   price = signal<number>(10);
   firstName = signal<string>('Aymen');
   lastName = signal<string>('Farhani');
-
+  paragraph = signal<string>('This is a paragraph demonstrating the use of signals in Angular. Signals allow for reactive programming, enabling automatic updates to the UI when data changes.');
+  items: { id: number, name: string }[] = this.dataService.items;
   //push-based example
   fullName = computed(() => `${this.firstName()} ${this.lastName()}`);
 
@@ -31,12 +34,12 @@ export class App {
 
   increment() {
     this.count.set(this.count() + 1);
-    this.getData();
+  //  this.getData();
   }
 
-  getData() {
+ /* getData() {
     this.dataService.getData();
-  }
+  }*/
 
 }
 

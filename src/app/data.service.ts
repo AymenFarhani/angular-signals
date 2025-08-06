@@ -1,24 +1,19 @@
 import { Injectable } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Observable, of } from 'rxjs';
+import { DUMMY_ITEMS } from './dummy-items';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+  items = DUMMY_ITEMS;
   private data$: Observable<{id: number, name:string}[]> = this.loadData();
   dataSignal = toSignal(this.data$, { initialValue: [] });
 
   // Original data source
   private loadData(): Observable<any[]> {
-    return of([
-      { id: 1, name: 'Item 1' },
-      { id: 2, name: 'Item 2' },
-      { id: 3, name: 'Item 3' },
-      { id: 1, name: 'Item 4' },
-      { id: 2, name: 'Item 5' },
-      { id: 3, name: 'Item 6' }
-    ]);
+    return of(this.items);
   }
 
   // Method to access the data

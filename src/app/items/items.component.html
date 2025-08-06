@@ -1,0 +1,12 @@
+<div  style="padding-left: 15px;">
+  <h3  [hidden]="selectedItem.id === 0">{{selectedItem.id}} - {{selectedItem.name}}</h3>
+  <button (click)="selectRandomItem()">Select Item</button>
+</div>
+
+<main>
+  <ul>
+    @for(item of items; track item.id) {
+      <li>{{item.id}} - {{item.name}}</li>
+    }
+  </ul>
+</main>

@@ -5,16 +5,16 @@
 <button (click)="increment()">Increment Count</button>
 <hr/>
 <label for="quantity">Quantity: </label>
-<input type="number" 
-       id="quantity" 
-       [value]="quantity()" 
+<input type="number"
+       id="quantity"
+       [value]="quantity()"
        (input)="quantity.set($any($event.target).valueAsNumber)"/>
 
 &nbsp;&nbsp;
 
-<label for="price">Price: </label> 
-<input type="number" 
-       id="price" 
+<label for="price">Price: </label>
+<input type="number"
+       id="price"
        [value]="price()"
        (input)="price.set($any($event.target).valueAsNumber)"/>
 
@@ -22,5 +22,6 @@
        <button (click)="calculateTotalPrice()">Calculate Total</button>
        -->
 <h3>TotalPrice = {{totalPrice()}}</h3>
-
+<hr/>
+<app-items [text]="paragraph" [items]="items"></app-items>
 

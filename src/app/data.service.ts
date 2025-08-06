@@ -12,7 +12,7 @@ export class DataService {
   dataSignal = toSignal(this.data$, { initialValue: [] });
 
   // Original data source
-  private loadData(): Observable<any[]> {
+  public loadData(): Observable<any[]> {
     return of(this.items);
   }
 

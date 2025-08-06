@@ -23,5 +23,5 @@
        -->
 <h3>TotalPrice = {{totalPrice()}}</h3>
 <hr/>
-<app-items [text]="paragraph" [items]="items"></app-items>
+<app-items [items]="items" (textEvent)="onTextReceived($event)"></app-items>
 
